@@ -1,0 +1,157 @@
+$button-background-color: #ffffffab;
+$button-color: #FFFFFF;
+$todo-hover: #afafaf;
+$todo-even-color: #d4d4d4a1;
+$todo-odd-color: #a9a9a98e;
+$header-color: #697091;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    overflow-y: scroll;
+}
+input {
+    display: inline;
+    margin: 10px;
+    padding: 10px;
+    padding-left: 20px;
+    margin-right: 20px;
+    font-size: large;
+    width: 25%;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+}
+button {
+    display: inline;
+    font-size: large;
+    padding: 10px 5px 10px 5px;
+    width: 20vh;
+    min-width: 20vh;
+    background-color: transparent;
+    outline: none;
+    border: 2px dotted $button-background-color;
+    color: $button-color;
+    border-radius: 20px;
+    margin-left: 20px;
+    transition: 0.5s;
+}
+
+button:hover {
+    cursor: pointer;
+    border: 2px solid $button-background-color;
+    background-color: $button-background-color;
+    color: black;
+}
+ul {
+    margin: 50px;
+    list-style-type: none;
+}
+.todo:hover {
+    background-color: $todo-hover;
+}
+li {
+    border: 2px dashed black;
+    padding: 20px;
+    transition: 0.4s ease-in;
+    margin: 20px;
+    padding-right: 0;
+    padding-top: 0;
+    font-size: 150%;
+    border-radius: 20px;
+    height: 70px;
+    min-height: 70px;
+    width: auto;
+    box-shadow: 5px 5px 3px gray;
+    background-color: $todo-even-color;
+}
+li:nth-child(odd) {
+    background-color: $todo-odd-color;
+}
+h1 {
+    padding: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+#header {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: $header-color;
+    box-shadow: 3px 5px 10px gray;
+}
+
+.remove {
+    float: right;
+    padding: 19px 20px 19px 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    transition: 0.4s ease-in;
+}
+.remove:hover {
+    background-color: red;
+    cursor: pointer;
+}
+.name {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.due-date {
+    display: inline;
+    border-left: 2px solid black;
+    padding: 3px;
+    padding-left: 15px;
+    margin-left: 15px;
+}
+.todo.checked {
+    background-color: black;
+    color: white;
+}
+
+.todo.checked:hover {
+    background-color: black;
+}
+
+.todo.checked .due-date {
+    border-color: white;
+}
+
+img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: relative;
+    top: 7px;
+    right: 35px;
+    background-color: black
+}
+
+label {
+    font-size: 150%;
+}
+
+@media only screen and (max-width: 600px) {
+    input {
+        display: block;
+        margin: auto;
+        width: 80%;
+        margin-top: 10px;
+    }
+    .due-date {
+        display: block !important;
+        border: none;
+    }
+    .todo {
+        height: 200px;
+    }
+    .remove {
+        background-color: transparent;
+    }
+    .remove:hover {
+        background-color: transparent;
+    }
+}
