@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <div id="header">
-            <h1>My Todolist</h1>
+            <h1>Todolist</h1>
             <form @submit.prevent='create()'>
                 <label for="name">Name: <input type="text" v-model="newTodo.name" id="name" required placeholder="Name"></label>
                 <label for="due-date">Due date: <input type="date" id="due-date" v-model="newTodo.due_date" placeholder="Due date"></label><br>
