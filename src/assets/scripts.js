@@ -27,6 +27,7 @@ export default {
                 const date = new Date(this.newTodo.due_date + ' 00:00');
                 const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][date.getDay()];
                 const [ year, month, day ] = this.newTodo.due_date.split('-');
+                todo.original_date = `${month}/${day}/${year}`;
                 const finalDate = `${month}/${day}/${year.slice(-2)} (${weekday})`;
                 todo.due_date = finalDate;
             }
@@ -39,11 +40,13 @@ export default {
         },
         save(todo) {
             this.todos.push(todo);
+            this.todos = this.sort(this.todos);
             localStorage.todos = JSON.stringify(this.todos);
         },
         remove(id) {
             const index = this.todos.findIndex(todo => todo.id === id);
             this.todos.splice(index, 1);
+            this.todos = this.sort(this.todos);
             localStorage.todos = JSON.stringify(this.todos);
         },
         toggleChecked(id) {
@@ -64,8 +67,16 @@ export default {
         clearComplete() {
             if(!confirm('Are you sure?')) return;
             const completeTodos = this.todos.filter(todo => !todo.checked);
-            this.todos = completeTodos;
+            this.todos = this.sort(completeTodos);
             localStorage.todos = JSON.stringify(completeTodos);
+        },
+        sort(arr) {
+            const array = [...arr];
+            const sorter = (a, b) => {
+                return new Date(a.original_date) - new Date(b.original_date);
+            };
+            array.sort(sorter);
+            return array;
         }
     }
 };
