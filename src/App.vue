@@ -12,7 +12,7 @@
         </div>
         <ul id="todos">
             <li v-for="todo in todos" :class="{ todo: true, checked: todo.checked}" @click="toggleChecked(todo.id)" :key="todo.id">
-                <img src="@/assets/check.jpg" :style="{ opacity: todo.checked ? 1 : 0 }" alt="Check mark">
+                <img src="@/assets/check.jpg" width="30px" height="30px" :style="{ opacity: todo.checked ? 1 : 0 }" alt="Check mark">
                 <span class="name">{{ todo.name }}</span>
                 <div class="due-date" :style="{ display: todo.due_date ? 'inline' : 'none !important' }">Due {{ todo.due_date }}</div>
                 <span class="remove" @click="remove(todo.id)">×</span>
