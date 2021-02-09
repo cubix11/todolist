@@ -72,11 +72,11 @@ export default {
         },
         sort(arr) {
             const array = [...arr];
-            const sorter = (a, b) => {
-                return new Date(a.original_date) - new Date(b.original_date);
-            };
-            array.sort(sorter);
-            return array;
+            const due_date_array = array.filter(todo => todo.original_date);
+            const not_due_date = array.filter(todo => !todo.original_date);
+            const sorter = (a, b) => new Date(a.original_date) - new Date(b.original_date);
+            due_date_array.sort(sorter);
+            return due_date_array.concat(not_due_date);;
         }
     }
 };
