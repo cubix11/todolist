@@ -16,6 +16,12 @@ export default {
             this.todos = [];
             localStorage.todos = JSON.stringify([]);
         }
+        if(localStorage.formshow) {
+            this.formshow = localStorage.formshow === 'true';
+        } else {
+            this.formshow = true;
+            localStorage.formshow = 'true';
+        }
     },
     methods: {
         create() {
@@ -78,6 +84,10 @@ export default {
             const sorter = (a, b) => new Date(a.original_date) - new Date(b.original_date);
             due_date_array.sort(sorter);
             return due_date_array.concat(not_due_date);
+        },
+        toggleForm() {
+            this.formshow = !this.formshow;
+            localStorage.formshow = `${this.formshow}`;
         }
     }
 };
