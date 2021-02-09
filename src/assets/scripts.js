@@ -76,7 +76,7 @@ export default {
             const not_due_date = array.filter(todo => !todo.original_date);
             const sorter = (a, b) => new Date(a.original_date) - new Date(b.original_date);
             due_date_array.sort(sorter);
-            return due_date_array.concat(not_due_date);;
+            return due_date_array.concat(not_due_date);
         }
     }
 };
