@@ -73,7 +73,13 @@ li:nth-child(odd) {
 }
 h1 {
     padding: 15px;
+    display: block;
     font-family: 'Montserrat', sans-serif;
+}
+#form-hide-show {
+    float: right;
+    position: relative;
+    top: -70px;
 }
 #header {
     text-align: center;
