@@ -1,8 +1,8 @@
 <template>
     <div id="app">
         <div id="header">
-            <h1>Todolist</h1>
-            <form @submit.prevent='create()'>
+            <h1>Todolist</h1><button @click="formshow = !formshow">Hide Form</button>
+            <form @submit.prevent='create()' v-if="formshow">
                 <label for="name">Name: <input type="text" v-model="newTodo.name" id="name" required placeholder="Name"></label>
                 <label for="due-date">Due date: <input type="date" id="due-date" v-model="newTodo.due_date" placeholder="Due date"></label><br>
                 <button type="submit">Create Todo</button>

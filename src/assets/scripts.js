@@ -5,7 +5,8 @@ export default {
             name: '',
             due_date: ''
         },
-        todos: []
+        todos: [],
+        formshow: true
     }),
     mounted() {
         document.getElementById('name').focus();
