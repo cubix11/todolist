@@ -20,5 +20,6 @@
         </ul>
     </div>
 </template>
+
 <script src='@/assets/scripts.js'></script>
 <style lang="scss" src='@/assets/styles.scss'></style>
